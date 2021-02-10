@@ -1,0 +1,66 @@
+header{
+  margin-bottom: 50px;
+  height: 100vh;
+}
+
+h2{
+  text-align: center;
+}
+
+.splide__pagination{
+  padding-bottom: 20px;
+}
+
+.splide__slide {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+img{
+  max-width: 100%;
+  max-height: 80vh;
+}
+
+.self_description{
+
+}
+.self_description-btn, .description{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.self_description-btn{
+  margin: 5px 0 15px;
+}
+
+.self_description-btn button, .description_btn button{
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #fff;
+}
+.description{
+  z-index: 10;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  background-color: #fff;
+}
+
+.description_btn{
+  transform: translateY(-100%);
+}
+
+.description_content{
+  background-color: #fff;
+
+}
