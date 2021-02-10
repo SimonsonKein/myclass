@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Про нас</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/aboutus.css">
+</head>
+<body>
+  <header>
+    <div class="undo_page" onclick="undoPage()">↑ Назад</div>
+    <h2>Ученики</h2>
+    <div class="student_list">
+      <div class="student_box"></div>
+      <div class="student_box"></div>
+      <div class="student_box"></div>
+      <div class="student_box"></div>
+      <div class="student_box"></div>
+      <div class="student_box"></div>
+      <div class="student_box"></div>
+      <div class="student_box"></div>
+      <div class="student_box"></div>
+    </div>
+
+  </header>
+  <script>
+    function undoPage(){
+      let header = document.querySelector('header');
+      header.style.opacity = '0';
+      header.style.transform = 'translateY(100%)';
+      header.style.transition = 'opacity 1s ease-in, transform 1s ease-in';
+      header.addEventListener('transitionend', transitionTo, false);
+    }
+
+    function transitionTo (){
+      document.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
