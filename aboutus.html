@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <title>Про нас</title>
@@ -12,18 +12,54 @@
     <div class="undo_page" onclick="undoPage()">↑ Назад</div>
     <h2>Ученики</h2>
     <div class="student_list">
-      <div class="student_box"></div>
-      <div class="student_box"></div>
-      <div class="student_box"></div>
-      <div class="student_box"></div>
-      <div class="student_box"></div>
-      <div class="student_box"></div>
-      <div class="student_box"></div>
-      <div class="student_box"></div>
-      <div class="student_box"></div>
-    </div>
 
+    </div>
   </header>
+
+  <script>
+    let data = {
+      "members": [
+        {
+          "name": "Дмитрий",
+          "age": "18",
+          "img": ["Sufrai1"]
+        },
+        {
+          "name": "Александр",
+          "age": "19",
+          "img": ["Ivanov1"]
+        },
+        {
+          "name": "Кристин Быткэ",
+          "age": "19",
+          "img": ["Batca1", "Batca2", "Batca3"],
+          "description": "Быткэ Кристин – ученик 12 «Б» класса Русского Теоретического лицея № 3 г.Дрокия. По своей натуре душевный и добрый человек , всегда придет на помощь и всегда ходит с улыбкой на лице. Очень сильно любит музыку. Иногда кажется что он слишком высокого мнения о себе , но он же считает что это заслуженно. Интенсивно занимается спортом и старается не отставать по учебе. Считает себя красавчиком с красивыми черными глазами. Но по натуре у него очень доброе сердце"
+        }
+      ]
+    }
+  </script>
+
+  <script>
+    let student = data.members;
+    let student_list = document.querySelector('.student_list')
+    let student_name = document.querySelector('.student_box.name')
+    let student_age = document.querySelector('.student_box.age')
+
+    for (let i = 0; i < data.members.length; i++){
+
+    student_list.innerHTML += `
+        <div class="student_box" id="${i}" onclick="profilePage(id)">
+          <div class="photo">
+            <img src="img/${student[i].img[0]}.jpg" alt="">
+          </div>
+          <div class="content">
+            <div class="name">${student[i].name}</div>
+            <div class="age">${student[i].age}</div>
+          </div>
+        </div>`
+    }
+  </script>
+
   <script>
     function undoPage(){
       let header = document.querySelector('header');
@@ -32,9 +68,22 @@
       header.style.transition = 'opacity 1s ease-in, transform 1s ease-in';
       header.addEventListener('transitionend', transitionTo, false);
     }
-
     function transitionTo (){
       document.location.href = "index.html";
+    }
+
+
+    function profilePage(id){
+      let header = document.querySelector('header');
+      header.style.opacity = '0';
+      header.style.transform = 'translateY(-100%)';
+      header.style.transition = 'opacity 1s ease-in, transform 1s ease-in';
+      header.addEventListener('transitionend', toProfile, false);
+      sessionStorage.setItem('id', `${id}`)
+    }
+
+    function toProfile(){
+      document.location.href = "profile.html";
     }
   </script>
 </body>

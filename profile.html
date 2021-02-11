@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/splide.min.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/profile.css">
+  <title>Document</title>
+
+</head>
+<body>
+
+  <div class="undo_page" onclick="undoPage()">↑ Назад</div>
+  <header class="profile">
+    <h2 class="profile_title"></h2>
+
+    <div class="splide">
+      <div class="splide__track">
+        <ul class="splide__list">
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="description">
+      <div class="description_btn" onclick="onDescription()">
+        <button>Описание</button>
+      </div>
+      <div class="description_content">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur doloremque facere natus nemo repudiandae similique unde vel voluptates! Autem id incidunt ipsa magni minus mollitia pariatur quas saepe sunt voluptatibus.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium architecto blanditiis consectetur corporis cumque, earum id impedit in, modi natus nesciunt quasi qui quibusdam. Amet aperiam culpa numquam porro? Amet. </div>
+    </div>
+</header>
+
+  <script>
+    let data = {
+      "members": [
+        {
+          "name": "Дмитрий",
+          "age": "18",
+          "img": ["Sufrai1"],
+          "description": "Создатель сия сайта"
+        },
+        {
+          "name": "Александр",
+          "age": "19",
+          "img": ["Ivanov1"],
+          "description": "Просто Санчес"
+        },
+        {
+          "name": "Кристин Быткэ",
+          "age": "19",
+          "img": ["Batca1", "Batca2", "Batca3"],
+          "description": "Быткэ Кристин – ученик 12 «Б» класса Русского Теоретического лицея № 3 г.Дрокия. По своей натуре душевный и добрый человек , всегда придет на помощь и всегда ходит с улыбкой на лице. Очень сильно любит музыку. Иногда кажется что он слишком высокого мнения о себе , но он же считает что это заслуженно. Интенсивно занимается спортом и старается не отставать по учебе. Считает себя красавчиком с красивыми черными глазами. Но по натуре у него очень доброе сердце"
+        }
+      ]
+    }
+  </script>
+  <script>
+    let profile = document.querySelector('.profile');
+    let profileTitle = document.querySelector('.profile_title');
+    let profile_list = document.querySelector('.splide__list');
+    let profile_desc = document.querySelector('.description_content')
+    let student = data.members[sessionStorage.getItem('id')];
+
+    profileTitle.textContent = student.name;
+
+    for (let i = 0; i < student.img.length; i++){
+      profile_list.innerHTML += `<li class="splide__slide"><img src="img/${student.img[i]}.jpg" alt=""></li>`
+    }
+
+    profile_desc.textContent = student.description;
+
+
+  </script>
+  <script>
+    function undoPage(){
+      let header = document.querySelector('header');
+      header.style.opacity = '0';
+      header.style.transform = 'translateY(100%)';
+      header.style.transition = 'opacity 1s ease-in, transform 1s ease-in';
+      header.addEventListener('transitionend', transitionTo, false);
+    }
+    function transitionTo (){
+      document.location.href = "aboutus.html";
+    }
+
+    let isOpened =false;
+    function onDescription(){
+      if (!isOpened){
+        let desc = document.querySelector('.description');
+        let descBtn = document.querySelector('.description_btn');
+        let descContent = document.querySelector('.description_content');
+        descContent.style.transform = `translateY(-${descBtn.clientHeight}px)`;
+        desc.style.transform = 'translate(-50%, 0)';
+        desc.style.transition = 'transform 1s ease';
+        isOpened = true;
+      } else  {
+        let desc = document.querySelector('.description');
+        let descBtn = document.querySelector('.description_btn');
+        let descContent = document.querySelector('.description_content');
+        descContent.style.transform = `translateY(-${descBtn.clientHeight}px)`;
+        desc.style.transform = 'translate(-50%, 100%)';
+        desc.style.transition = 'transform 1s ease';
+        isOpened = false;
+      }
+    }
+  </script>
+
+  <script src="js/splide.min.js"></script>
+  <script>
+    new Splide( '.splide',{
+      type:'loop',
+      focus: 'center',
+      trimSpace: 'move',
+      fixedHeight: '500px',
+      height: '80vh',
+      width: '100wh',
+    } ).mount();
+  </script>
+
+
+
+</body>
+</html>
