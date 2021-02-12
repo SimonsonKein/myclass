@@ -28,20 +28,15 @@ img{
   max-width: 100%;
   max-height: 80vh;
 }
-.self_description{
 
-}
-.self_description-btn, .description{
+.description{
   display: flex;
   justify-content: center;
   text-align: center;
 }
 
-.self_description-btn{
-  margin: 5px 0 15px;
-}
 
-.self_description-btn button, .description_btn button{
+.description_btn{
   font-size: 20px;
   font-weight: bold;
   text-align: center;
@@ -58,16 +53,27 @@ img{
   width: 100%;
   max-width: 400px;
   background-color: #fff;
+  box-sizing: content-box;
 }
 
 .description_btn{
   transform: translateY(-100%);
+  background-color: #e7e7e7;
+
+  border-radius: 30px 30px 0 0;
 }
 
 .description_content{
-  background-color: #fff;
+  background-color: #f8f8f8;
 
+  padding-bottom: 10px;
+  border-radius: 0 0 20px 20px;
 }
+
+.desc_arrow{
+display: inline;
+}
+
 .undo_page{
   font-size: 20px;
   font-weight: bold;
@@ -80,5 +86,5 @@ img{
 }
 
 .undo_page:hover{
-  cursor: pointer;;
+  cursor: pointer;
 }

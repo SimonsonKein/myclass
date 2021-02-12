@@ -18,9 +18,9 @@
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/splide.min.css">
   <link rel="stylesheet" href="css/style.css">
 
-  <link rel="stylesheet" href="css/splide.min.css">
 
   <meta name="theme-color" content="#fafafa">
 </head>
@@ -33,7 +33,7 @@
 
     <div class="self_description">
       <div class="self_description-btn" onclick="onAboutUs()">
-        <button>Описание каждого из нас</button>
+        <p>Описание каждого из нас ↓ </p>
       </div>
     </div>
 
@@ -48,9 +48,7 @@
     </div>
 
     <div class="description">
-    <div class="description_btn" onclick="onDescription()">
-      <button>Описание</button>
-    </div>
+    <div class="description_btn" onclick="onDescription()">Описание <p class="desc_arrow">↑</p></div>
     <div class="description_content">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur doloremque facere natus nemo repudiandae similique unde vel voluptates! Autem id incidunt ipsa magni minus mollitia pariatur quas saepe sunt voluptatibus.
    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium architecto blanditiis consectetur corporis cumque, earum id impedit in, modi natus nesciunt quasi qui quibusdam. Amet aperiam culpa numquam porro? Amet. </div>
@@ -81,6 +79,8 @@
         descContent.style.transform = `translateY(-${descBtn.clientHeight}px)`;
         desc.style.transform = 'translate(-50%, 0)';
         desc.style.transition = 'transform 1s ease';
+        let descArrow = document.querySelector('.desc_arrow');
+        descArrow.innerHTML = '↓'
         isOpened = true;
       } else  {
         let desc = document.querySelector('.description');
@@ -89,6 +89,9 @@
         descContent.style.transform = `translateY(-${descBtn.clientHeight}px)`;
         desc.style.transform = 'translate(-50%, 100%)';
         desc.style.transition = 'transform 1s ease';
+        let descArrow = document.querySelector('.desc_arrow');
+        descArrow.innerHTML = '↑'
+
         isOpened = false;
       }
     }

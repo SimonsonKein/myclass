@@ -49,6 +49,10 @@ h2{
   cursor: pointer;
 }
 
+.photo{
+  height: 90%;
+}
+
 .photo img{
   max-height: 100%;
   max-width: 100%;

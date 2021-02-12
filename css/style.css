@@ -41,11 +41,18 @@ img{
   margin: 5px 0 15px;
 }
 
-.self_description-btn button, .description_btn button{
+
+
+.self_description-btn p, .description_btn {
   font-size: 20px;
   font-weight: bold;
   text-align: center;
   background-color: #fff;
+}
+.self_description p{
+  background-color: #e7e7e7;
+  border-radius: 20px;
+  padding: 5px 10px;
 }
 .description{
   z-index: 10;
@@ -58,13 +65,23 @@ img{
   width: 100%;
   max-width: 400px;
   background-color: #fff;
+  box-sizing: content-box;
 }
 
 .description_btn{
   transform: translateY(-100%);
+  background-color: #e7e7e7;
+  padding: 5px 0;
+  border-radius: 30px 30px 0 0;
 }
 
 .description_content{
-  background-color: #fff;
+  background-color: #f8f8f8;
 
+  padding-bottom: 10px;
+  border-radius: 0 0 20px 20px;
+}
+
+.desc_arrow{
+  display: inline;
 }
