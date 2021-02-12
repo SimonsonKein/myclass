@@ -51,11 +51,15 @@ h2{
 
 .photo{
   height: 90%;
+  position: relative;
 }
 
 .photo img{
   max-height: 100%;
   max-width: 100%;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .student_box .content{
