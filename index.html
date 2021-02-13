@@ -40,25 +40,24 @@
     <div class="splide">
       <div class="splide__track">
         <ul class="splide__list">
-          <li class="splide__slide"><img src="img/Class1.jpg" alt=""></li>
-          <li class="splide__slide"><img src="img/Class2.jpg" alt=""></li>
-          <li class="splide__slide"><img src="img/Class3.jpg" alt=""></li>
-          <li class="splide__slide"><img src="img/Class4.jpg" alt=""></li>
-          <li class="splide__slide"><img src="img/Class5.jpg" alt=""></li>
-          <li class="splide__slide"><img src="img/Class6.jpg" alt=""></li>
+
         </ul>
       </div>
     </div>
 
     <div class="description">
     <div class="description_btn" onclick="onDescription()">Описание <p class="desc_arrow">↑</p></div>
-    <div class="description_content">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur doloremque facere natus nemo repudiandae similique unde vel voluptates! Autem id incidunt ipsa magni minus mollitia pariatur quas saepe sunt voluptatibus.
-   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium architecto blanditiis consectetur corporis cumque, earum id impedit in, modi natus nesciunt quasi qui quibusdam. Amet aperiam culpa numquam porro? Amet. </div>
-  </div>
+    <div class="description_content">Наверное вы уже поняли, что сайтец этот 12 "Б" класса. Профиль у нас реальный, а значит мы люди умные, оригинальные, поэтому и решили вместо стенгазеты создать сайт. Класс мы веселый и дружный (13 человек сплотить легче, как-никак). О некоторых фигурах нашего класса вы наверняка уже наслышаны, как минимум о Левчике. Вы люди лаконичные, поэтому много что-либо описывать не любим. Все вопросы задавайте лично. Основной корпус - второй этаж - высокая коричневая дверь напротив кабинета физики.
+    </div>
   </header>
 
   <!--Scripts-->
+
+  <script>
+    for (let i = 1; i <= 17; i++){
+      document.querySelector('.splide__list').innerHTML += `<li class="splide__slide"><img src="img/Class${i}.jpg" alt=""></li>`
+    }
+  </script>
 
   <script>
     function onAboutUs(){
@@ -79,22 +78,21 @@
         let desc = document.querySelector('.description');
         let descBtn = document.querySelector('.description_btn');
         let descContent = document.querySelector('.description_content');
-        descContent.style.transform = `translateY(-${descBtn.clientHeight}px)`;
-        desc.style.transform = 'translate(-50%, 0)';
-        desc.style.transition = 'transform 1s ease';
         let descArrow = document.querySelector('.desc_arrow');
-        descArrow.innerHTML = '↓'
+        descContent.style.transform = `translateY(-${descBtn.clientHeight}px)`;
+        desc.style.transform = 'translate(-50%, 5%)';
+        desc.style.transition = 'transform 1s ease';
+        descArrow.innerHTML = '↓';
         isOpened = true;
       } else  {
         let desc = document.querySelector('.description');
         let descBtn = document.querySelector('.description_btn');
         let descContent = document.querySelector('.description_content');
+        let descArrow = document.querySelector('.desc_arrow');
         descContent.style.transform = `translateY(-${descBtn.clientHeight}px)`;
         desc.style.transform = 'translate(-50%, 100%)';
         desc.style.transition = 'transform 1s ease';
-        let descArrow = document.querySelector('.desc_arrow');
-        descArrow.innerHTML = '↑'
-
+        descArrow.innerHTML = '↑';
         isOpened = false;
       }
     }
