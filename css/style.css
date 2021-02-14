@@ -116,3 +116,10 @@ img{
   overflow: auto;
   text-align: left;
 }
+
+@media (max-device-width: 800px) {
+  .description{
+    max-width: 100%;
+    width: 100%;
+  }
+}

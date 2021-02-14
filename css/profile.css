@@ -110,3 +110,11 @@ display: inline;
 .undo_page:hover{
   cursor: pointer;
 }
+
+
+@media (max-device-width: 800px) {
+  .description{
+    max-width: 100%;
+    width: 100%;
+  }
+}

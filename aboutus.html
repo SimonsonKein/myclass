@@ -116,11 +116,9 @@
   <script>
     let student = data.members;
     let student_list = document.querySelector('.student_list')
-    let student_name = document.querySelector('.student_box.name')
-    let student_age = document.querySelector('.student_box.age')
 
     for (let i = 0; i < data.members.length; i++){
-      if (student[i].name != "Гай Фокс"){
+      if (student[i].name !== "Гай Фокс"){
         student_list.innerHTML += `
         <div class="student_box" id="${i}" onclick="profilePage(id)">
           <div class="photo">
